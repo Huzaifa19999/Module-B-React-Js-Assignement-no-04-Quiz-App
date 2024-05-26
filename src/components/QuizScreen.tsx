@@ -66,6 +66,13 @@ export default function QuizScreen() {
     }
   };
 
+  const resetQuiz = () => {
+
+    setCurrentIndex(0);
+    setmark(0);
+    setIsCompleted(false);
+  }
+
   return (
     <div className="container mt-5">
       {isCompleted ? (
@@ -75,7 +82,9 @@ export default function QuizScreen() {
           </div>
           <div className="card-body">
             <h5 className="card-title">Your marks: {mark}/{questions.length}</h5>
-            <p className="card-text">Thank you for participating!</p>
+            <h5 className="card-title">Your Percentage: {mark/questions.length*100}%</h5>
+            <h2 className="card-text">Thank you for participating!</h2>
+            <button onClick={resetQuiz}  className="btn mt-5 btn-primary btn-lg w-25">Reset Quiz</button>
           </div>
         </div>
       ) : (
